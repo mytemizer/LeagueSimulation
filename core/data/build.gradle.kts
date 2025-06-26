@@ -38,13 +38,13 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:database"))
     implementation(project(":core:network"))
-    
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
-    
+
     // Dependency Injection
-    implementation(libs.hilt.android)
-    
+    implementation(libs.koin.core)
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

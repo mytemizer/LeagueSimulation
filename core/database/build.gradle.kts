@@ -37,18 +37,18 @@ android {
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:domain"))
-    
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
-    
+
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
-    
+
     // Dependency Injection
-    implementation(libs.hilt.android)
-    
+    implementation(libs.koin.core)
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

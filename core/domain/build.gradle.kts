@@ -35,10 +35,13 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
-    
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
-    
+
+    // Dependency Injection
+    implementation(libs.koin.core)
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
