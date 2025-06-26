@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.mytemizer.leaguesimulator.core.common-release-12:/drawable-v21/notification_action_background.xml",
+        "source": "com.mytemizer.leaguesimulator.core.common-core-1.16.0-6:/drawable-v21/notification_action_background.xml"
+    }
+]

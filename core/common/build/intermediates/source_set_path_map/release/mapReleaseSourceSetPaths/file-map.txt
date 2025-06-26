@@ -1,0 +1,16 @@
+com.mytemizer.leaguesimulator.core.common-core-ktx-1.16.0-0 /Users/yusuf/.gradle/caches/8.11.1/transforms/0622c9ea0be9ac0dc6af6d882a8fff17/transformed/core-ktx-1.16.0/res
+com.mytemizer.leaguesimulator.core.common-startup-runtime-1.1.1-1 /Users/yusuf/.gradle/caches/8.11.1/transforms/64ca86940241f2f6c84e69aeca402c53/transformed/startup-runtime-1.1.1/res
+com.mytemizer.leaguesimulator.core.common-tracing-1.2.0-2 /Users/yusuf/.gradle/caches/8.11.1/transforms/8aa1771dfd0e13d3a7525f177948e99f/transformed/tracing-1.2.0/res
+com.mytemizer.leaguesimulator.core.common-core-runtime-2.2.0-3 /Users/yusuf/.gradle/caches/8.11.1/transforms/cac67fe2ceca5fcbdb55234c8f9ef7d5/transformed/core-runtime-2.2.0/res
+com.mytemizer.leaguesimulator.core.common-lifecycle-runtime-2.6.2-4 /Users/yusuf/.gradle/caches/8.11.1/transforms/d99e9224edbe59010f6de3d056edff32/transformed/lifecycle-runtime-2.6.2/res
+com.mytemizer.leaguesimulator.core.common-core-viewtree-1.0.0-5 /Users/yusuf/.gradle/caches/8.11.1/transforms/e39927667cae316f5d8039c24179f81e/transformed/core-viewtree-1.0.0/res
+com.mytemizer.leaguesimulator.core.common-core-1.16.0-6 /Users/yusuf/.gradle/caches/8.11.1/transforms/e8de133f521e5c8771ab3a63c393171c/transformed/core-1.16.0/res
+com.mytemizer.leaguesimulator.core.common-profileinstaller-1.3.0-7 /Users/yusuf/.gradle/caches/8.11.1/transforms/f1be22eb6dc1d52581f1b83c14c1f7ea/transformed/profileinstaller-1.3.0/res
+com.mytemizer.leaguesimulator.core.common-annotation-experimental-1.4.1-8 /Users/yusuf/.gradle/caches/8.11.1/transforms/f83c725ed7acbeff3f1dea5a292538b4/transformed/annotation-experimental-1.4.1/res
+com.mytemizer.leaguesimulator.core.common-pngs-9 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/build/generated/res/pngs/release
+com.mytemizer.leaguesimulator.core.common-resValues-10 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/build/generated/res/resValues/release
+com.mytemizer.leaguesimulator.core.common-mergeReleaseResources-11 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.mytemizer.leaguesimulator.core.common-mergeReleaseResources-12 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.mytemizer.leaguesimulator.core.common-release-13 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/build/intermediates/merged_res/release/mergeReleaseResources
+com.mytemizer.leaguesimulator.core.common-main-14 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/src/main/res
+com.mytemizer.leaguesimulator.core.common-release-15 /Users/yusuf/yusuf-repo/LeagueSimulation/core/common/src/release/res
