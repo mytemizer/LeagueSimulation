@@ -3,7 +3,7 @@ package com.mytemizer.leaguesimulator.core.domain.simulation
 import com.mytemizer.leaguesimulator.core.domain.model.*
 
 /**
- * Calculates group standings and handles sorting according to FIFA rules
+ * Calculates group standings and handles sorting according to rules
  */
 class GroupTableCalculator {
 
@@ -21,7 +21,7 @@ class GroupTableCalculator {
             updateStandingsWithMatch(standings, match)
         }
 
-        // Sort standings according to FIFA rules
+        // Sort standings according to rules
         val sortedStandings = sortStandings(standings, matches)
 
         // Assign positions
@@ -73,7 +73,7 @@ class GroupTableCalculator {
     }
 
     /**
-     * Sort standings according to FIFA rules:
+     * Sort standings according to rules:
      * 1. Points
      * 2. Goal difference
      * 3. Goals for
@@ -94,6 +94,11 @@ class GroupTableCalculator {
             val goalsForComparison = standing2.goalsFor.compareTo(standing1.goalsFor)
             if (goalsForComparison != 0) return@sortedWith goalsForComparison
 
+            /** I think this comparison is not needed.
+             * If goal difference and goals for are equal, goals against is also equal
+             * And this skip will probably be skipped (won't affect anything)
+             * I added this since it was in the assignment description
+             */
             // 4. Goals against (ascending - fewer is better)
             val goalsAgainstComparison = standing1.goalsAgainst.compareTo(standing2.goalsAgainst)
             if (goalsAgainstComparison != 0) return@sortedWith goalsAgainstComparison
