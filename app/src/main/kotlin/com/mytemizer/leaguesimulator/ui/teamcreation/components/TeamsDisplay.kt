@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,8 +21,6 @@ import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
 import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.Team
-import com.mytemizer.leaguesimulator.ui.teamcreation.TeamCreationViewModel
-import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
@@ -34,31 +31,6 @@ fun TeamsDisplay(
     Column(
         modifier = Modifier.fillMaxHeight()
     ) {
-        // 2-column grid for teams
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier.fillMaxHeight()
-        ) {
-            teams.chunked(2).forEach { rowTeams ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
-                ) {
-                    rowTeams.forEach { team ->
-                        TeamCard(
-                            team = team,
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
-                    // Fill remaining space if odd number of teams
-                    if (rowTeams.size == 1) {
-                        Spacer(modifier = Modifier.weight(1f))
-                    }
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
 
         // Compact Tournament Info
         Row(
@@ -98,6 +70,36 @@ fun TeamsDisplay(
                 )
             }
         }
+        // 2-column grid for teams
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier.fillMaxHeight()
+        ) {
+            teams.chunked(3).forEach { rowTeams ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    rowTeams.forEach { team ->
+                        TeamCard(
+                            team = team,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                    // Fill remaining space if odd number of teams
+                    if (rowTeams.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                        Spacer(modifier = Modifier.weight(1f))
+                    } else if (rowTeams.size == 2) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+
 
         // Add bottom padding for scrolling
         Spacer(modifier = Modifier.height(24.dp))
