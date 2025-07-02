@@ -125,7 +125,7 @@ class TournamentRepositoryImpl(
     override fun getCurrentGroupTable(): GroupTable {
         return groupTableCalculator.calculateGroupTable(
             teams = currentTeams,
-            matches = playedMatches,
+            matches = getPlayedMatches(),
             groupId = 1L
         )
     }
