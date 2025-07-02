@@ -84,10 +84,10 @@
     <string name="qualification_title">🎯 Final Qualification</string>
     <string name="qualification_qualified">✅ Qualified for Final:</string>
     <string name="qualification_eliminated">❌ Eliminated:</string>
-    <string name="qualification_place_1st">1st</string>
-    <string name="qualification_place_2nd">2nd</string>
-    <string name="qualification_place_3rd">3rd</string>
-    <string name="qualification_place_4th">4th</string>
+    <string name="qualification_place_1st">st</string>
+    <string name="qualification_place_2nd">nd</string>
+    <string name="qualification_place_3rd">rd</string>
+    <string name="qualification_place_4th">th</string>
     <string name="qualification_place_suffix"> place</string>
 
     <!-- Form Results -->
@@ -100,6 +100,7 @@
     <string name="next_match_title">⚽ Next Match - Round %1$d/%2$d</string>
     <string name="next_match_standings_button">📊 Standings</string>
     <string name="next_match_skip_button">⏭️ Skip All</string>
+    <string name="next_match_skip_loading">⏭️ Simulating...</string>
     <string name="next_match_error_title">❌ Error loading match</string>
     <string name="next_match_vs">VS</string>
     <string name="next_match_final">FINAL</string>

@@ -1,5 +1,6 @@
 package com.mytemizer.leaguesimulator.ui.standings
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -42,9 +43,24 @@ fun StandingsScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val groupTable by viewModel.groupTable.collectAsStateWithLifecycle()
 
+    BackHandler {
+        if (!uiState.isTournamentComplete) {
+            onBackToMatch()
+        }
+    }
+
     // Refresh standings when screen is displayed
     LaunchedEffect(Unit) {
         viewModel.refreshStandings()
+    }
+
+    // Also refresh when groupTable changes to ensure latest data
+    LaunchedEffect(groupTable) {
+        if (groupTable.isSuccess()) {
+            // Small delay to ensure all state is updated
+            kotlinx.coroutines.delay(100)
+            viewModel.refreshStandings()
+        }
     }
 
     StandingsScreenContainer(

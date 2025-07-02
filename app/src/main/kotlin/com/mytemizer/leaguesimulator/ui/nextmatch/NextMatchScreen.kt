@@ -65,7 +65,9 @@ fun NextMatchScreen(
         onMatchCompleted, onViewStandings,
         simulateCurrentMatch = viewModel::simulateCurrentMatch,
         loadNextMatch = viewModel::loadNextMatch,
-        skipAllMatches = viewModel::skipAllMatches
+        skipAllMatches = { onComplete ->
+            viewModel.skipAllMatches(onComplete)
+        }
     )
 }
 
@@ -78,7 +80,7 @@ fun NextMatchScreenContent(
     onViewStandings: () -> Unit,
     simulateCurrentMatch: () -> Unit,
     loadNextMatch: () -> Unit,
-    skipAllMatches: () -> Unit
+    skipAllMatches: (onComplete: () -> Unit) -> Unit
 ) {
 
     Column(
@@ -104,13 +106,21 @@ fun NextMatchScreenContent(
             ) {
                 OutlinedButton(
                     onClick = {
-                        skipAllMatches()
-                        onViewStandings()
+                        skipAllMatches {
+                            onViewStandings()
+                        }
                     },
                     modifier = Modifier.height(32.dp),
                     enabled = !getUiState().isSimulating
                 ) {
-                    Text(stringResource(R.string.next_match_skip_button), fontSize = 12.sp)
+                    Text(
+                        text = if (getUiState().isSimulating) {
+                            stringResource(R.string.next_match_skip_loading)
+                        } else {
+                            stringResource(R.string.next_match_skip_button)
+                        },
+                        fontSize = 12.sp
+                    )
                 }
 
                 OutlinedButton(
@@ -219,7 +229,7 @@ private fun NextMatchScreenPreview() {
             onViewStandings = {},
             simulateCurrentMatch = {},
             loadNextMatch = {},
-            skipAllMatches = {}
+            skipAllMatches = { _ -> }
         )
     }
 }

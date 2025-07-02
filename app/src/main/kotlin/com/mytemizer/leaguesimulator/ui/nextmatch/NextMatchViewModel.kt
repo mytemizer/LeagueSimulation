@@ -106,10 +106,13 @@ class NextMatchViewModel(
         }
     }
 
-    fun skipAllMatches() {
+    fun skipAllMatches(onComplete: () -> Unit = {}) {
         viewModelScope.launch {
             try {
                 _uiState.value = _uiState.value.copy(isSimulating = true)
+
+                // Add a small delay to show loading state
+                delay(500)
 
                 // Simulate all remaining matches
                 while (tournamentRepository.hasMoreMatches()) {
@@ -122,6 +125,9 @@ class NextMatchViewModel(
                             groupId = nextMatch.groupId
                         )
                         tournamentRepository.updateMatchResult(simulatedMatch)
+
+                        // Small delay between matches for better UX
+                        delay(100)
                     }
                 }
 
@@ -130,6 +136,8 @@ class NextMatchViewModel(
                     hasMoreMatches = false,
                     isSimulating = false
                 )
+                // Notify completion
+                onComplete()
 
             } catch (e: Exception) {
                 _uiState.value = _uiState.value.copy(isSimulating = false)
