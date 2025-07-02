@@ -58,7 +58,7 @@ class GenerateTeamsUseCase(
         val generationType: GenerationType,
     ) {
         init {
-            require(teamCount > Constants.MIN_TEAMS_IN_LEAGUE) { "Team count must be at least ${Constants.MIN_TEAMS_IN_LEAGUE}" }
+            require(teamCount >= Constants.MIN_TEAMS_IN_LEAGUE) { "Team count must be at least ${Constants.MIN_TEAMS_IN_LEAGUE}" }
             require(teamCount <= Constants.MAX_TEAMS_IN_LEAGUE) { "Team count cannot exceed ${Constants.MAX_TEAMS_IN_LEAGUE}" }
             require(teamCount % 2 == 0) { "Team count must be even for proper league scheduling" }
         }
