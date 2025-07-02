@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 
@@ -175,26 +176,28 @@ fun MatchDisplay(
 @Preview
 @Composable
 private fun MatchDisplayPreview() {
-    MatchDisplay(
-        match = GroupMatch(
-            homeTeam = Team(
-                id = 1,
-                name = "Manchester United",
-                shortName = "MUN",
-                overallRating = 80
+    LeagueSimulatorTheme {
+        MatchDisplay(
+            match = GroupMatch(
+                homeTeam = Team(
+                    id = 1,
+                    name = "Manchester United",
+                    shortName = "MUN",
+                    overallRating = 80
+                ),
+                awayTeam = Team(
+                    id = 2,
+                    name = "Liverpool FC",
+                    shortName = "LIV",
+                    overallRating = 85
+                ),
+                isPlayed = false,
+                round = 1,
+                groupId = 1L
             ),
-            awayTeam = Team(
-                id = 2,
-                name = "Liverpool FC",
-                shortName = "LIV",
-                overallRating = 85
-            ),
-            isPlayed = false,
-            round = 1,
-            groupId = 1L
-        ),
-        isSimulating = false,
-        onSimulateMatch = {},
-        onNextMatch = {}
-    )
+            isSimulating = false,
+            onSimulateMatch = {},
+            onNextMatch = {}
+        )
+    }
 }

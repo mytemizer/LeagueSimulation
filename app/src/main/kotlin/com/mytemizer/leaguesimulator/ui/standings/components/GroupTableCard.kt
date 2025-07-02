@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.core.domain.model.GroupStanding
 import com.mytemizer.leaguesimulator.core.domain.model.Team
@@ -297,66 +298,68 @@ private fun calculateTeamForm(team: Team, matches: List<GroupMatch>): List<Strin
 @Preview
 @Composable
 private fun GroupTableCardPreview() {
-    GroupTableCard(
-        standings = listOf(
-            GroupStanding(
-                team = Team(
-                    name = "Team 1",
-                    shortName = "T1",
+    LeagueSimulatorTheme {
+        GroupTableCard(
+            standings = listOf(
+                GroupStanding(
+                    team = Team(
+                        name = "Team 1",
+                        shortName = "T1",
+                    ),
+                    position = 1,
+                    played = 3,
+                    won = 2,
+                    drawn = 0,
+                    lost = 1,
+                    goalsFor = 8,
+                    goalsAgainst = 2,
+                    points = 6
                 ),
-                position = 1,
-                played = 3,
-                won = 2,
-                drawn = 0,
-                lost = 1,
-                goalsFor = 8,
-                goalsAgainst = 2,
-                points = 6
-            ),
-            GroupStanding(
-                team = Team(
-                    name = "Team 2",
-                    shortName = "T2",
+                GroupStanding(
+                    team = Team(
+                        name = "Team 2",
+                        shortName = "T2",
+                    ),
+                    position = 2,
+                    played = 3,
+                    won = 1,
+                    drawn = 1,
+                    lost = 1,
+                    goalsFor = 4,
+                    goalsAgainst = 4,
+                    points = 4
                 ),
-                position = 2,
-                played = 3,
-                won = 1,
-                drawn = 1,
-                lost = 1,
-                goalsFor = 4,
-                goalsAgainst = 4,
-                points = 4
-            ),
-            GroupStanding(
-                team = Team(
-                    name = "Team 3",
-                    shortName = "T3",
+                GroupStanding(
+                    team = Team(
+                        name = "Team 3",
+                        shortName = "T3",
+                    ),
+                    position = 3,
+                    played = 3,
+                    won = 1,
+                    drawn = 0,
+                    lost = 2,
+                    goalsFor = 3,
+                    goalsAgainst = 5,
+                    points = 3
                 ),
-                position = 3,
-                played = 3,
-                won = 1,
-                drawn = 0,
-                lost = 2,
-                goalsFor = 3,
-                goalsAgainst = 5,
-                points = 3
-            ),
-            GroupStanding(
-                team = Team(
-                    name = "Team 4",
-                    shortName = "T4",
+                GroupStanding(
+                    team = Team(
+                        name = "Team 4",
+                        shortName = "T4",
+                    ),
+                    position = 4,
+                    played = 3,
+                    won = 0,
+                    drawn = 1,
+                    lost = 2,
+                    goalsFor = 1,
+                    goalsAgainst = 5,
+                    points = 1
                 ),
-                position = 4,
-                played = 3,
-                won = 0,
-                drawn = 1,
-                lost = 2,
-                goalsFor = 1,
-                goalsAgainst = 5,
-                points = 1
             ),
-        ),
-        isTournamentComplete = false,
-        matches = emptyList()
-    )
+            isTournamentComplete = false,
+            matches = emptyList()
+        )
+    }
 }

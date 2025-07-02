@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 
 @Composable
@@ -77,10 +78,12 @@ fun TournamentProgress(
 @Preview
 @Composable
 private fun TournamentProgressPreview() {
-    TournamentProgress(
-        currentRound = 2,
-        totalRounds = 3,
-        matchesPlayed = 4,
-        totalMatches = 6
-    )
+    LeagueSimulatorTheme {
+        TournamentProgress(
+            currentRound = 2,
+            totalRounds = 3,
+            matchesPlayed = 4,
+            totalMatches = 6
+        )
+    }
 }

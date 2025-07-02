@@ -8,6 +8,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 
 @Composable
@@ -49,8 +50,10 @@ fun ResetTournamentDialog(
 @Preview
 @Composable
 private fun ResetTournamentDialogPreview() {
-    ResetTournamentDialog(
-        onConfirm = {},
-        onDismiss = {}
-    )
+    LeagueSimulatorTheme {
+        ResetTournamentDialog(
+            onConfirm = {},
+            onDismiss = {}
+        )
+    }
 }

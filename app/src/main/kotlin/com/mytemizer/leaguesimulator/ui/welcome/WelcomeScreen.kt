@@ -1,5 +1,6 @@
 package com.mytemizer.leaguesimulator.ui.welcome
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 @Composable
 fun WelcomeScreen(
@@ -24,7 +26,8 @@ fun WelcomeScreen(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(32.dp),
+            .padding(32.dp)
+            .background(MaterialTheme.colorScheme.background),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -149,5 +152,7 @@ fun WelcomeScreen(
 @Preview
 @Composable
 private fun WelcomeScreenPreview() {
-    WelcomeScreen(onStartTournament = {})
+    LeagueSimulatorTheme {
+        WelcomeScreen(onStartTournament = {})
+    }
 }

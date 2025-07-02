@@ -11,7 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.mytemizer.leaguesimulator.navigation.NavGraph
-import com.mytemizer.leaguesimulator.ui.theme.LeagueSimulatorTheme
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 
@@ -74,13 +75,15 @@ fun MatchResultSummary(match: GroupMatch) {
 @Preview
 @Composable
 private fun MatchResultSummaryPreview() {
-    MatchResultSummary(
-        match = GroupMatch(
-            homeTeam = Team(name = "Team A", shortName = "A"),
-            awayTeam = Team(name = "Team B", shortName = "B"),
-            homeGoals = 2,
-            awayGoals = 1,
-            isPlayed = true
+    LeagueSimulatorTheme {
+        MatchResultSummary(
+            match = GroupMatch(
+                homeTeam = Team(name = "Team A", shortName = "A"),
+                awayTeam = Team(name = "Team B", shortName = "B"),
+                homeGoals = 2,
+                awayGoals = 1,
+                isPlayed = true
+            )
         )
-    )
+    }
 }

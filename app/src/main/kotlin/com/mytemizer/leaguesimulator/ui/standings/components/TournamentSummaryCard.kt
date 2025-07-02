@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupTable
 import kotlin.collections.count
 
@@ -83,12 +84,14 @@ fun TournamentSummaryCard(
 @Preview
 @Composable
 private fun TournamentSummaryCardPreview() {
-    TournamentSummaryCard(
-        groupTable = GroupTable(
-            groupId = 1,
-            standings = emptyList(),
-            matches = emptyList()
-        ),
-        isTournamentComplete = false
-    )
+    LeagueSimulatorTheme {
+        TournamentSummaryCard(
+            groupTable = GroupTable(
+                groupId = 1,
+                standings = emptyList(),
+                matches = emptyList()
+            ),
+            isTournamentComplete = false
+        )
+    }
 }

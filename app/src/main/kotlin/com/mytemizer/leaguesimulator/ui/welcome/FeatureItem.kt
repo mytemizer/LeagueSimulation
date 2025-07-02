@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 
 @Composable
@@ -67,9 +68,11 @@ fun FeatureItem(
 @Preview
 @Composable
 private fun FeatureItemPreview() {
-    FeatureItem(
-        icon = "🎲",
-        title = "Random Teams",
-        description = "Generate unique teams"
-    )
+    LeagueSimulatorTheme {
+        FeatureItem(
+            icon = "🎲",
+            title = "Random Teams",
+            description = "Generate unique teams"
+        )
+    }
 }

@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 import com.mytemizer.leaguesimulator.ui.teamcreation.TeamCreationViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -109,33 +110,35 @@ fun TeamsDisplay(
 @Preview
 @Composable
 private fun TeamsDisplayPreview() {
-    TeamsDisplay(
-        teams = listOf(
-            Team(
-                id = 1,
-                name = "Manchester United",
-                shortName = "MUN",
-                overallRating = 80
+    LeagueSimulatorTheme {
+        TeamsDisplay(
+            teams = listOf(
+                Team(
+                    id = 1,
+                    name = "Manchester United",
+                    shortName = "MUN",
+                    overallRating = 80
+                ),
+                Team(
+                    id = 2,
+                    name = "Liverpool FC",
+                    shortName = "LIV",
+                    overallRating = 85
+                ),
+                Team(
+                    id = 3,
+                    name = "Arsenal FC",
+                    shortName = "ARS",
+                    overallRating = 75
+                ),
+                Team(
+                    id = 4,
+                    name = "Chelsea FC",
+                    shortName = "CHE",
+                    overallRating = 82
+                )
             ),
-            Team(
-                id = 2,
-                name = "Liverpool FC",
-                shortName = "LIV",
-                overallRating = 85
-            ),
-            Team(
-                id = 3,
-                name = "Arsenal FC",
-                shortName = "ARS",
-                overallRating = 75
-            ),
-            Team(
-                id = 4,
-                name = "Chelsea FC",
-                shortName = "CHE",
-                overallRating = 82
-            )
-        ),
-        onTeamsConfirmed = {}
-    )
+            onTeamsConfirmed = {}
+        )
+    }
 }

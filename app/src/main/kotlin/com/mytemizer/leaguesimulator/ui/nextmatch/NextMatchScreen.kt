@@ -21,6 +21,7 @@ import com.mytemizer.leaguesimulator.core.common.util.isLoading
 import com.mytemizer.leaguesimulator.core.common.util.isSuccess
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.components.ErrorDisplay
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 import com.mytemizer.leaguesimulator.ui.nextmatch.components.MatchDisplay
 import com.mytemizer.leaguesimulator.ui.nextmatch.components.TournamentProgress
@@ -172,33 +173,35 @@ fun NextMatchScreenContent(
 @Preview
 @Composable
 private fun NextMatchScreenPreview() {
-    NextMatchScreenContent(
-        modifier = Modifier,
-        getUiState = { NextMatchUiState(currentRound = 2, matchesPlayed = 4, hasMoreMatches = true) },
-        getCurrentMatch = {
-            Resource.Success(
-                GroupMatch(
-                    homeTeam = Team(
-                        id = 1,
-                        name = "Manchester United",
-                        shortName = "MUN",
-                        overallRating = 80
-                    ),
-                    awayTeam = Team(
-                        id = 2,
-                        name = "Liverpool FC",
-                        shortName = "LIV",
-                        overallRating = 85
-                    ),
-                    isPlayed = false,
-                    round = 2,
-                    groupId = 1L
+    LeagueSimulatorTheme {
+        NextMatchScreenContent(
+            modifier = Modifier,
+            getUiState = { NextMatchUiState(currentRound = 2, matchesPlayed = 4, hasMoreMatches = true) },
+            getCurrentMatch = {
+                Resource.Success(
+                    GroupMatch(
+                        homeTeam = Team(
+                            id = 1,
+                            name = "Manchester United",
+                            shortName = "MUN",
+                            overallRating = 80
+                        ),
+                        awayTeam = Team(
+                            id = 2,
+                            name = "Liverpool FC",
+                            shortName = "LIV",
+                            overallRating = 85
+                        ),
+                        isPlayed = false,
+                        round = 2,
+                        groupId = 1L
+                    )
                 )
-            )
-        },
-        onMatchCompleted = {},
-        onViewStandings = {},
-        simulateCurrentMatch = {},
-        loadNextMatch = {}
-    )
+            },
+            onMatchCompleted = {},
+            onViewStandings = {},
+            simulateCurrentMatch = {},
+            loadNextMatch = {}
+        )
+    }
 }

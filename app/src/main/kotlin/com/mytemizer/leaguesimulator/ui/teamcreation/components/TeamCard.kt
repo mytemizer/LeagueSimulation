@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
 import com.mytemizer.leaguesimulator.components.TeamColorsCircle
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 
 
@@ -112,12 +113,14 @@ fun TeamCard(
 @Preview
 @Composable
 private fun TeamCardPreview() {
-    TeamCard(
-        team = Team(
-            id = 0,
-            name = "Manchester United",
-            shortName = "MUN",
-            overallRating = 80
+    LeagueSimulatorTheme {
+        TeamCard(
+            team = Team(
+                id = 0,
+                name = "Manchester United",
+                shortName = "MUN",
+                overallRating = 80
+            )
         )
-    )
+    }
 }

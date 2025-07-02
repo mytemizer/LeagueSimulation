@@ -20,6 +20,7 @@ import com.mytemizer.leaguesimulator.core.common.util.isLoading
 import com.mytemizer.leaguesimulator.core.common.util.isSuccess
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 import com.mytemizer.leaguesimulator.components.ErrorDisplay
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.ui.teamcreation.components.TeamsDisplay
 import com.mytemizer.leaguesimulator.ui.teamcreation.components.VerticalTeamGenerationOptions
 import org.koin.androidx.compose.koinViewModel
@@ -167,17 +168,19 @@ private fun TeamCreationScreenContent(
 @Preview
 @Composable
 private fun TeamCreationScreenPreview() {
-    TeamCreationScreenContent(
-        modifier = Modifier,
-        getUiState = {
-            TeamCreationUiState()
-        },
-        getTeamsResult = {
-            Resource.Success(emptyList())
-        },
-        onTeamsCreated = {},
-        selectTier = {},
-        generateTeams = {},
-        initializeTournament = {},
-    )
+    LeagueSimulatorTheme {
+        TeamCreationScreenContent(
+            modifier = Modifier,
+            getUiState = {
+                TeamCreationUiState()
+            },
+            getTeamsResult = {
+                Resource.Success(emptyList())
+            },
+            onTeamsCreated = {},
+            selectTier = {},
+            generateTeams = {},
+            initializeTournament = {},
+        )
+    }
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.ui.teamcreation.TeamTier
 import com.mytemizer.leaguesimulator.ui.teamcreation.getDisplayName
 
@@ -63,8 +64,10 @@ fun VerticalTeamGenerationOptions(
 @Preview
 @Composable
 private fun VerticalTeamGenerationOptionsPreview() {
-    VerticalTeamGenerationOptions(
-        selectedTier = TeamTier.MIXED,
-        onTierSelected = {}
-    )
+    LeagueSimulatorTheme {
+        VerticalTeamGenerationOptions(
+            selectedTier = TeamTier.MIXED,
+            onTierSelected = {}
+        )
+    }
 }

@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mytemizer.leaguesimulator.R
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 
@@ -102,44 +103,46 @@ fun MatchResultsCard(matches: List<GroupMatch>) {
 @Preview
 @Composable
 private fun MatchResultsCardPreview() {
-    MatchResultsCard(
-        matches = listOf(
-            GroupMatch(
-                homeTeam = Team(name = "Team 1", shortName = "T1"),
-                awayTeam = Team(name = "Team 2", shortName = "T2"),
-                homeGoals = 2,
-                awayGoals = 1,
-                isPlayed = true
-            ),
-            GroupMatch(
-                homeTeam = Team(name = "Team 3", shortName = "T3"),
-                awayTeam = Team(name = "Team 4", shortName = "T4"),
-                homeGoals = 1,
-                awayGoals = 1,
-                isPlayed = true
-            ),
-            GroupMatch(
-                homeTeam = Team(name = "Team 1", shortName = "T1"),
-                awayTeam = Team(name = "Team 3", shortName = "T3"),
-                homeGoals = 1,
-                awayGoals = 2,
-                isPlayed = true
-            ),
-            GroupMatch(
-                homeTeam = Team(name = "Team 2", shortName = "T2"),
-                awayTeam = Team(name = "Team 4", shortName = "T4"),
-                isPlayed = false
-            ),
-            GroupMatch(
-                homeTeam = Team(name = "Team 1", shortName = "T1"),
-                awayTeam = Team(name = "Team 4", shortName = "T4"),
-                isPlayed = false
-            ),
-            GroupMatch(
-                homeTeam = Team(name = "Team 2", shortName = "T2"),
-                awayTeam = Team(name = "Team 3", shortName = "T3"),
-                isPlayed = false
+    LeagueSimulatorTheme {
+        MatchResultsCard(
+            matches = listOf(
+                GroupMatch(
+                    homeTeam = Team(name = "Team 1", shortName = "T1"),
+                    awayTeam = Team(name = "Team 2", shortName = "T2"),
+                    homeGoals = 2,
+                    awayGoals = 1,
+                    isPlayed = true
+                ),
+                GroupMatch(
+                    homeTeam = Team(name = "Team 3", shortName = "T3"),
+                    awayTeam = Team(name = "Team 4", shortName = "T4"),
+                    homeGoals = 1,
+                    awayGoals = 1,
+                    isPlayed = true
+                ),
+                GroupMatch(
+                    homeTeam = Team(name = "Team 1", shortName = "T1"),
+                    awayTeam = Team(name = "Team 3", shortName = "T3"),
+                    homeGoals = 1,
+                    awayGoals = 2,
+                    isPlayed = true
+                ),
+                GroupMatch(
+                    homeTeam = Team(name = "Team 2", shortName = "T2"),
+                    awayTeam = Team(name = "Team 4", shortName = "T4"),
+                    isPlayed = false
+                ),
+                GroupMatch(
+                    homeTeam = Team(name = "Team 1", shortName = "T1"),
+                    awayTeam = Team(name = "Team 4", shortName = "T4"),
+                    isPlayed = false
+                ),
+                GroupMatch(
+                    homeTeam = Team(name = "Team 2", shortName = "T2"),
+                    awayTeam = Team(name = "Team 3", shortName = "T3"),
+                    isPlayed = false
+                )
             )
         )
-    )
+    }
 }

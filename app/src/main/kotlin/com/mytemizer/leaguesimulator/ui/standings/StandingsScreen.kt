@@ -22,6 +22,7 @@ import com.mytemizer.leaguesimulator.core.common.util.isLoading
 import com.mytemizer.leaguesimulator.core.common.util.isSuccess
 import com.mytemizer.leaguesimulator.core.domain.model.GroupTable
 import com.mytemizer.leaguesimulator.components.ErrorDisplay
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.core.domain.model.GroupMatch
 import com.mytemizer.leaguesimulator.core.domain.model.GroupStanding
 import com.mytemizer.leaguesimulator.core.domain.model.Team
@@ -206,86 +207,88 @@ private fun StandingsContent(
 @Preview
 @Composable
 private fun StandingsScreenPreview() {
-    StandingsScreenContainer(
-        modifier = Modifier,
-        uiState = StandingsUiState(isTournamentComplete = true),
-        groupTable = Resource.Success(
-            GroupTable(
-                groupId = 1,
-                standings = listOf(
-                    GroupStanding(
-                        team = Team(name = "Team 1", shortName = "T1"),
-                        points = 3,
-                        goalsFor = 2,
-                        goalsAgainst = 1,
+    LeagueSimulatorTheme {
+        StandingsScreenContainer(
+            modifier = Modifier,
+            uiState = StandingsUiState(isTournamentComplete = true),
+            groupTable = Resource.Success(
+                GroupTable(
+                    groupId = 1,
+                    standings = listOf(
+                        GroupStanding(
+                            team = Team(name = "Team 1", shortName = "T1"),
+                            points = 3,
+                            goalsFor = 2,
+                            goalsAgainst = 1,
+                        ),
+                        GroupStanding(
+                            team = Team(name = "Team 2", shortName = "T2"),
+                            points = 3,
+                            goalsFor = 2,
+                            goalsAgainst = 1,
+                        ),
+                        GroupStanding(
+                            team = Team(name = "Team 3", shortName = "T3"),
+                            points = 3,
+                            goalsFor = 2,
+                            goalsAgainst = 1,
+                        ),
+                        GroupStanding(
+                            team = Team(name = "Team 4", shortName = "T4"),
+                            points = 3,
+                            goalsFor = 2,
+                            goalsAgainst = 1,
+                        )
                     ),
-                    GroupStanding(
-                        team = Team(name = "Team 2", shortName = "T2"),
-                        points = 3,
-                        goalsFor = 2,
-                        goalsAgainst = 1,
-                    ),
-                    GroupStanding(
-                        team = Team(name = "Team 3", shortName = "T3"),
-                        points = 3,
-                        goalsFor = 2,
-                        goalsAgainst = 1,
-                    ),
-                    GroupStanding(
-                        team = Team(name = "Team 4", shortName = "T4"),
-                        points = 3,
-                        goalsFor = 2,
-                        goalsAgainst = 1,
-                    )
-                ),
-                matches = listOf(
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 1", shortName = "T1"),
-                        awayTeam = Team(name = "Team 2", shortName = "T2"),
-                        homeGoals = 2,
-                        awayGoals = 1,
-                        isPlayed = true
-                    ),
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 3", shortName = "T3"),
-                        awayTeam = Team(name = "Team 4", shortName = "T4"),
-                        homeGoals = 1,
-                        awayGoals = 1,
-                        isPlayed = true
-                    ),
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 1", shortName = "T1"),
-                        awayTeam = Team(name = "Team 3", shortName = "T3"),
-                        homeGoals = 1,
-                        awayGoals = 2,
-                        isPlayed = true
-                    ),
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 2", shortName = "T2"),
-                        awayTeam = Team(name = "Team 4", shortName = "T4"),
-                        homeGoals = 1,
-                        awayGoals = 1,
-                        isPlayed = true
-                    ),
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 1", shortName = "T1"),
-                        awayTeam = Team(name = "Team 4", shortName = "T4"),
-                        homeGoals = 3,
-                        awayGoals = 0,
-                        isPlayed = true
-                    ),
-                    GroupMatch(
-                        homeTeam = Team(name = "Team 2", shortName = "T2"),
-                        awayTeam = Team(name = "Team 3", shortName = "T3"),
-                        homeGoals = 1,
-                        awayGoals = 1,
-                        isPlayed = true
+                    matches = listOf(
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 1", shortName = "T1"),
+                            awayTeam = Team(name = "Team 2", shortName = "T2"),
+                            homeGoals = 2,
+                            awayGoals = 1,
+                            isPlayed = true
+                        ),
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 3", shortName = "T3"),
+                            awayTeam = Team(name = "Team 4", shortName = "T4"),
+                            homeGoals = 1,
+                            awayGoals = 1,
+                            isPlayed = true
+                        ),
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 1", shortName = "T1"),
+                            awayTeam = Team(name = "Team 3", shortName = "T3"),
+                            homeGoals = 1,
+                            awayGoals = 2,
+                            isPlayed = true
+                        ),
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 2", shortName = "T2"),
+                            awayTeam = Team(name = "Team 4", shortName = "T4"),
+                            homeGoals = 1,
+                            awayGoals = 1,
+                            isPlayed = true
+                        ),
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 1", shortName = "T1"),
+                            awayTeam = Team(name = "Team 4", shortName = "T4"),
+                            homeGoals = 3,
+                            awayGoals = 0,
+                            isPlayed = true
+                        ),
+                        GroupMatch(
+                            homeTeam = Team(name = "Team 2", shortName = "T2"),
+                            awayTeam = Team(name = "Team 3", shortName = "T3"),
+                            homeGoals = 1,
+                            awayGoals = 1,
+                            isPlayed = true
+                        )
                     )
                 )
-            )
-        ),
-        onNewTournament = {},
-        refreshStandings = {},
-        onBackToMatch = {}
-    )
+            ),
+            onNewTournament = {},
+            refreshStandings = {},
+            onBackToMatch = {}
+        )
+    }
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 
 
 @Composable
@@ -37,5 +38,7 @@ fun MiniStatBadge(label: String, value: Int) {
 @Preview
 @Composable
 private fun MiniStatBadgePreview() {
-    MiniStatBadge(label = "Attack", value = 80)
+    LeagueSimulatorTheme {
+        MiniStatBadge(label = "Attack", value = 80)
+    }
 }
