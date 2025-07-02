@@ -8,9 +8,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mytemizer.leaguesimulator.R
 
 @Composable
 fun WelcomeScreen(
@@ -47,7 +50,7 @@ fun WelcomeScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "⚽",
+                            text = stringResource(R.string.icon_match_simulation),
                             fontSize = 16.sp
                         )
                     }
@@ -57,7 +60,7 @@ fun WelcomeScreen(
 
                 // App Title
                 Text(
-                    text = "League Simulator",
+                    text = stringResource(id = R.string.welcome_app_title),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
@@ -65,7 +68,6 @@ fun WelcomeScreen(
             }
 
             // Right side - Start Button
-
             Button(
                 onClick = onStartTournament,
                 modifier = Modifier
@@ -74,7 +76,7 @@ fun WelcomeScreen(
                 shape = RoundedCornerShape(24.dp)
             ) {
                 Text(
-                    text = "🚀 Start Tournament",
+                    text = stringResource(R.string.welcome_start_button),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -92,7 +94,7 @@ fun WelcomeScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "🏆 Tournament Features",
+                    text = stringResource(R.string.welcome_features_title),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -104,17 +106,17 @@ fun WelcomeScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    CompactFeatureItem(
-                        icon = "🎲",
-                        title = "Random Teams",
-                        description = "Generate unique teams",
+                    FeatureItem(
+                        icon = stringResource(R.string.icon_random_teams),
+                        title = stringResource(R.string.feature_random_teams_title),
+                        description = stringResource(R.string.feature_random_teams_desc),
                         modifier = Modifier.weight(1f)
                     )
 
-                    CompactFeatureItem(
-                        icon = "⚽",
-                        title = "Match Simulation",
-                        description = "Realistic outcomes",
+                    FeatureItem(
+                        icon = stringResource(R.string.icon_match_simulation),
+                        title = stringResource(R.string.feature_match_simulation_title),
+                        description = stringResource(R.string.feature_match_simulation_desc),
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -125,17 +127,17 @@ fun WelcomeScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    CompactFeatureItem(
-                        icon = "📊",
-                        title = "Live Standings",
-                        description = "Track performance",
+                    FeatureItem(
+                        icon = stringResource(R.string.icon_live_standings),
+                        title = stringResource(R.string.feature_live_standings_title),
+                        description = stringResource(R.string.feature_live_standings_desc),
                         modifier = Modifier.weight(1f)
                     )
 
-                    CompactFeatureItem(
-                        icon = "🏅",
-                        title = "Tournament Progress",
-                        description = "Follow your teams",
+                    FeatureItem(
+                        icon = stringResource(R.string.icon_tournament_progress),
+                        title = stringResource(R.string.feature_tournament_progress_title),
+                        description = "Follow match results",
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -144,49 +146,8 @@ fun WelcomeScreen(
     }
 }
 
+@Preview
 @Composable
-private fun CompactFeatureItem(
-    icon: String,
-    title: String,
-    description: String,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        modifier = modifier,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = icon,
-                fontSize = 18.sp,
-                modifier = Modifier.padding(end = 8.dp)
-            )
-
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = title,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                Text(
-                    text = description,
-                    fontSize = 10.sp,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-                    modifier = Modifier.padding(top = 1.dp)
-                )
-            }
-        }
-    }
+private fun WelcomeScreenPreview() {
+    WelcomeScreen(onStartTournament = {})
 }

@@ -16,12 +16,112 @@
     <string name="feature_live_standings_title">Live Standings</string>
     <string name="feature_live_standings_desc">Track performance</string>
     <string name="feature_tournament_progress_title">Tournament Progress</string>
-    <string name="feature_tournament_progress_desc">Follow your teams</string>
+    <string name="feature_tournament_progress_desc">Follow match results</string>
 
     <!-- Feature Icons -->
-    <string name="icon_app_logo">⚽</string>
     <string name="icon_random_teams">🎲</string>
     <string name="icon_match_simulation">⚽</string>
     <string name="icon_live_standings">📊</string>
     <string name="icon_tournament_progress">🏅</string>
+
+    <!-- Team Creation Screen -->
+    <string name="team_creation_title">🎲 Create Teams</string>
+    <string name="team_creation_generate_button">🔄 Generate</string>
+    <string name="team_creation_generating_text">Generating teams…</string>
+    <string name="team_creation_error_title">❌ Failed to generate teams</string>
+    <string name="team_creation_quality_title">Team Quality</string>
+    <string name="team_creation_tournament_teams">🏆 Tournament Teams</string>
+    <string name="team_creation_tournament_info">4 teams • 3 rounds • 6 matches</string>
+    <string name="team_creation_advance_info">Top 2 advance to final</string>
+    <string name="team_creation_start_tournament">⚽ Start Tournament</string>
+
+    <!-- Team Quality Tiers -->
+    <string name="team_tier_world_class">World Class</string>
+    <string name="team_tier_excellent">Excellent</string>
+    <string name="team_tier_good">Good</string>
+    <string name="team_tier_mixed">Mixed</string>
+
+    <!-- Team Stats Labels -->
+    <string name="team_stat_attack">ATT</string>
+    <string name="team_stat_midfield">MID</string>
+    <string name="team_stat_defense">DEF</string>
+    <string name="team_stat_goalkeeper">GK</string>
+
+    <!-- Standings Screen -->
+    <string name="standings_title">📊 Standings</string>
+    <string name="standings_title_final">📊 Standings - Final</string>
+    <string name="standings_back_button">⚽ Back</string>
+    <string name="standings_error_title">❌ Error loading standings</string>
+    <string name="standings_new_tournament">🆕 Start New Tournament</string>
+
+    <!-- Group Table -->
+    <string name="group_table_title">🏆 Group Table</string>
+    <string name="group_table_header_pos">Pos</string>
+    <string name="group_table_header_team">Team</string>
+    <string name="group_table_header_rate">Rate</string>
+    <string name="group_table_header_played">P</string>
+    <string name="group_table_header_won">W</string>
+    <string name="group_table_header_drawn">D</string>
+    <string name="group_table_header_lost">L</string>
+    <string name="group_table_header_goals_for">GF</string>
+    <string name="group_table_header_goals_against">GA</string>
+    <string name="group_table_header_goal_difference">GD</string>
+    <string name="group_table_header_form">Form</string>
+    <string name="group_table_header_points">Pts</string>
+
+    <!-- Match Results -->
+    <string name="match_results_title">⚽ Match Results</string>
+    <string name="match_results_round">Round %1$d</string>
+
+    <!-- Tournament Statistics -->
+    <string name="tournament_stats_title">📈 Tournament Statistics</string>
+    <string name="tournament_stats_matches_played">Matches Played:</string>
+    <string name="tournament_stats_total_goals">Total Goals:</string>
+    <string name="tournament_stats_avg_goals">Avg. Goals/Match:</string>
+    <string name="tournament_complete">🏆 Tournament Complete!</string>
+
+    <!-- Qualification -->
+    <string name="qualification_title">🎯 Final Qualification</string>
+    <string name="qualification_qualified">✅ Qualified for Final:</string>
+    <string name="qualification_eliminated">❌ Eliminated:</string>
+    <string name="qualification_place_1st">1st</string>
+    <string name="qualification_place_2nd">2nd</string>
+    <string name="qualification_place_3rd">3rd</string>
+    <string name="qualification_place_4th">4th</string>
+    <string name="qualification_place_suffix"> place</string>
+
+    <!-- Form Results -->
+    <string name="form_win">W</string>
+    <string name="form_draw">D</string>
+    <string name="form_loss">L</string>
+    <string name="form_no_result">-</string>
+
+    <!-- Next Match Screen -->
+    <string name="next_match_title">⚽ Next Match - Round %1$d/3</string>
+    <string name="next_match_standings_button">📊 Standings</string>
+    <string name="next_match_error_title">❌ Error loading match</string>
+    <string name="next_match_vs">VS</string>
+    <string name="next_match_final">FINAL</string>
+    <string name="next_match_simulating">Simulating…</string>
+    <string name="next_match_simulate_button">⚽ Simulate Match</string>
+    <string name="next_match_next_button">➡️ Next Match</string>
+    <string name="next_match_home">🏠 Home</string>
+    <string name="next_match_away">✈️ Away</string>
+
+    <!-- Match Results -->
+    <string name="match_result_draw">🤝 Draw!</string>
+    <string name="match_result_wins">🏆 %1$s Wins!</string>
+    <string name="match_result_completed">Match Completed</string>
+    <string name="match_result_points_suffix"> pts</string>
+
+    <!-- Tournament Progress -->
+    <string name="tournament_progress_title">🏆 Tournament Progress</string>
+    <string name="tournament_progress_round">Round:</string>
+    <string name="tournament_progress_matches">Matches:</string>
+
+    <!-- Tournament Completed -->
+    <string name="tournament_completed_trophy">🏆</string>
+    <string name="tournament_completed_title">Tournament Complete!</string>
+    <string name="tournament_completed_description">All matches have been played.\nCheck the final standings!</string>
+    <string name="tournament_completed_view_standings">📊 View Final Standings</string>
 </resources>
