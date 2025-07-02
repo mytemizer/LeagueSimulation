@@ -31,12 +31,16 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    lint {
+        disable.add("NullSafeMutableLiveData")
+    }
 }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
-    
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

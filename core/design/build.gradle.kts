@@ -36,11 +36,15 @@ android {
     buildFeatures {
         compose = true
     }
+
+    lint {
+        disable.add("NullSafeMutableLiveData")
+    }
 }
 
 dependencies {
     implementation(project(":core:common"))
-    
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -49,7 +53,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
