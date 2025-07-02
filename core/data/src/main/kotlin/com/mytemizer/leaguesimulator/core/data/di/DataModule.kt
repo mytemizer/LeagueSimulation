@@ -1,9 +1,9 @@
 package com.mytemizer.leaguesimulator.core.data.di
 
-import com.mytemizer.leaguesimulator.core.data.repository.LeagueRepositoryImpl
 import com.mytemizer.leaguesimulator.core.data.repository.TeamRepositoryImpl
-import com.mytemizer.leaguesimulator.core.domain.repository.LeagueRepository
+import com.mytemizer.leaguesimulator.core.data.repository.TournamentRepositoryImpl
 import com.mytemizer.leaguesimulator.core.domain.repository.TeamRepository
+import com.mytemizer.leaguesimulator.core.domain.repository.TournamentRepository
 import org.koin.dsl.module
 
 /**
@@ -13,6 +13,5 @@ val dataModule = module {
 
     // Repositories
     single<TeamRepository> { TeamRepositoryImpl() }
-    single<LeagueRepository> { LeagueRepositoryImpl() }
-
+    single<TournamentRepository> { TournamentRepositoryImpl(get(), get()) }
 }

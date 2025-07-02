@@ -10,15 +10,6 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-// League Simulator specific colors
-val LeagueGreen = Color(0xFF4CAF50)
-val LeagueBlue = Color(0xFF2196F3)
-val LeagueRed = Color(0xFFF44336)
-val LeagueOrange = Color(0xFFFF9800)
-val LeagueGold = Color(0xFFFFD700)
-val LeagueSilver = Color(0xFFC0C0C0)
-val LeagueBronze = Color(0xFFCD7F32)
-
 // Background colors
 val BackgroundLight = Color(0xFFFFFBFE)
 val BackgroundDark = Color(0xFF1C1B1F)

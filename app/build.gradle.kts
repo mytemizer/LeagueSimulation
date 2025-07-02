@@ -50,11 +50,6 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
 
-    // Feature modules
-    implementation(project(":feature:league"))
-    implementation(project(":feature:simulation"))
-    implementation(project(":feature:teams"))
-    implementation(project(":feature:players"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -29,11 +29,4 @@ include(":core:common")
 include(":core:design")
 include(":core:data")
 include(":core:domain")
-include(":core:network")
 include(":core:database")
-
-// Feature modules
-include(":feature:league")
-include(":feature:simulation")
-include(":feature:teams")
-include(":feature:players")

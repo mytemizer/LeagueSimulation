@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">LeagueSimulator</string>
+
+    <!-- Welcome Screen -->
+    <string name="welcome_app_title">League Simulator</string>
+    <string name="welcome_subtitle">Create your dream tournament\nwith random teams</string>
+    <string name="welcome_features_title">🏆 Tournament Features</string>
+    <string name="welcome_start_button">🚀 Start Tournament</string>
+    <string name="welcome_version_info">Version 1.0 • Made with ❤️</string>
+
+    <!-- Welcome Features -->
+    <string name="feature_random_teams_title">Random Teams</string>
+    <string name="feature_random_teams_desc">Generate unique teams</string>
+    <string name="feature_match_simulation_title">Match Simulation</string>
+    <string name="feature_match_simulation_desc">Realistic outcomes</string>
+    <string name="feature_live_standings_title">Live Standings</string>
+    <string name="feature_live_standings_desc">Track performance</string>
+    <string name="feature_tournament_progress_title">Tournament Progress</string>
+    <string name="feature_tournament_progress_desc">Follow your teams</string>
+
+    <!-- Feature Icons -->
+    <string name="icon_app_logo">⚽</string>
+    <string name="icon_random_teams">🎲</string>
+    <string name="icon_match_simulation">⚽</string>
+    <string name="icon_live_standings">📊</string>
+    <string name="icon_tournament_progress">🏅</string>
 </resources>
