@@ -34,13 +34,6 @@ fun TeamsDisplay(
     Column(
         modifier = Modifier.fillMaxHeight()
     ) {
-        Text(
-            text = stringResource(R.string.team_creation_tournament_teams),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 6.dp)
-        )
-
         // 2-column grid for teams
         Column(
             verticalArrangement = Arrangement.spacedBy(4.dp),

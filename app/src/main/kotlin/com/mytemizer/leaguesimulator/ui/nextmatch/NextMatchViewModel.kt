@@ -105,6 +105,37 @@ class NextMatchViewModel(
             resetTournamentUseCase.invoke()
         }
     }
+
+    fun skipAllMatches() {
+        viewModelScope.launch {
+            try {
+                _uiState.value = _uiState.value.copy(isSimulating = true)
+
+                // Simulate all remaining matches
+                while (tournamentRepository.hasMoreMatches()) {
+                    val nextMatch = tournamentRepository.getNextMatch()
+                    if (nextMatch != null) {
+                        val simulatedMatch = matchSimulator.simulateMatch(
+                            homeTeam = nextMatch.homeTeam,
+                            awayTeam = nextMatch.awayTeam,
+                            round = nextMatch.round,
+                            groupId = nextMatch.groupId
+                        )
+                        tournamentRepository.updateMatchResult(simulatedMatch)
+                    }
+                }
+
+                // Update UI state to reflect tournament completion
+                _uiState.value = _uiState.value.copy(
+                    hasMoreMatches = false,
+                    isSimulating = false
+                )
+
+            } catch (e: Exception) {
+                _uiState.value = _uiState.value.copy(isSimulating = false)
+            }
+        }
+    }
 }
 
 data class NextMatchUiState(

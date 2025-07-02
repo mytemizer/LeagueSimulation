@@ -97,30 +97,49 @@ class MatchSimulator {
      * Simulate multiple matches
      */
     fun simulateMatches(matches: List<Pair<Team, Team>>, groupId: Long = 0, teamsCount: Int = 4): List<GroupMatch> {
-        val totalRounds = teamsCount - 1
-        val matchesPerRound = matches.size.toDouble() / totalRounds
+        val matchesPerRound = teamsCount / 2
 
         return matches.mapIndexed { index, (homeTeam, awayTeam) ->
-            val round = (index / matchesPerRound).toInt() + 1
-            simulateMatch(homeTeam, awayTeam, round.coerceAtMost(totalRounds), groupId)
+            val round = (index / matchesPerRound) + 1
+            simulateMatch(homeTeam, awayTeam, round, groupId)
         }
     }
 
     /**
      * Generate all possible matches for a group (round-robin)
      * Supports any even number of teams >= 4
-     * Uses simple round-robin: each team plays every other team exactly once
+     * Uses circle method to ensure each team plays once per round
      */
     fun generateGroupMatches(teams: List<Team>): List<Pair<Team, Team>> {
         require(teams.size >= 4) { "Group must have at least 4 teams" }
         require(teams.size % 2 == 0) { "Group must have an even number of teams" }
 
         val matches = mutableListOf<Pair<Team, Team>>()
+        val n = teams.size
+        val rounds = n - 1
 
-        // Simple round-robin: each team plays every other team once
-        for (i in teams.indices) {
-            for (j in i + 1 until teams.size) {
-                matches.add(teams[i] to teams[j])
+        // Circle method for round-robin tournament
+        // Fix one team (last team) and rotate others
+        for (round in 0 until rounds) {
+            for (match in 0 until n / 2) {
+                val team1Index: Int
+                val team2Index: Int
+
+                if (match == 0) {
+                    // First match: fixed team vs rotating team
+                    team1Index = n - 1 // Fixed team (last team)
+                    team2Index = round % (n - 1)
+                } else {
+                    // Other matches: pair remaining teams
+                    val pos1 = (round + match) % (n - 1)
+                    val pos2 = (round + n - 1 - match) % (n - 1)
+                    team1Index = pos1
+                    team2Index = pos2
+                }
+
+                if (team1Index != team2Index) {
+                    matches.add(teams[team1Index] to teams[team2Index])
+                }
             }
         }
 

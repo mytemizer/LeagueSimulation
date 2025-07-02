@@ -41,7 +41,10 @@ fun MatchResultsCard(matches: List<GroupMatch>) {
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            (1..3).forEach { round ->
+            // Get all unique rounds from matches and sort them
+            val allRounds = matches.map { it.round }.distinct().sorted()
+
+            allRounds.forEach { round ->
                 val roundMatches = matches.filter { it.round == round }
                 if (roundMatches.isNotEmpty()) {
                     Text(

@@ -31,7 +31,6 @@
     <string name="team_creation_error_title">❌ Failed to generate teams</string>
     <string name="team_creation_quality_title">Team Quality</string>
     <string name="team_creation_team_count">Team Count</string>
-    <string name="team_creation_tournament_teams">🏆 Tournament Teams</string>
     <string name="team_creation_tournament_info">4 teams • 3 rounds • 6 matches</string>
     <string name="team_creation_advance_info">Top 2 advance to final</string>
     <string name="team_creation_start_tournament">⚽ Start Tournament</string>
@@ -100,6 +99,7 @@
     <!-- Next Match Screen -->
     <string name="next_match_title">⚽ Next Match - Round %1$d/%2$d</string>
     <string name="next_match_standings_button">📊 Standings</string>
+    <string name="next_match_skip_button">⏭️ Skip All</string>
     <string name="next_match_error_title">❌ Error loading match</string>
     <string name="next_match_vs">VS</string>
     <string name="next_match_final">FINAL</string>

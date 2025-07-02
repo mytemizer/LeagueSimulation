@@ -64,7 +64,8 @@ fun NextMatchScreen(
         getCurrentMatch = { currentMatch },
         onMatchCompleted, onViewStandings,
         simulateCurrentMatch = viewModel::simulateCurrentMatch,
-        loadNextMatch = viewModel::loadNextMatch
+        loadNextMatch = viewModel::loadNextMatch,
+        skipAllMatches = viewModel::skipAllMatches
     )
 }
 
@@ -76,7 +77,8 @@ fun NextMatchScreenContent(
     onMatchCompleted: () -> Unit,
     onViewStandings: () -> Unit,
     simulateCurrentMatch: () -> Unit,
-    loadNextMatch: () -> Unit
+    loadNextMatch: () -> Unit,
+    skipAllMatches: () -> Unit
 ) {
 
     Column(
@@ -97,11 +99,26 @@ fun NextMatchScreenContent(
                 fontWeight = FontWeight.Bold
             )
 
-            OutlinedButton(
-                onClick = onViewStandings,
-                modifier = Modifier.height(32.dp)
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(stringResource(R.string.next_match_standings_button), fontSize = 12.sp)
+                OutlinedButton(
+                    onClick = {
+                        skipAllMatches()
+                        onViewStandings()
+                    },
+                    modifier = Modifier.height(32.dp),
+                    enabled = !getUiState().isSimulating
+                ) {
+                    Text(stringResource(R.string.next_match_skip_button), fontSize = 12.sp)
+                }
+
+                OutlinedButton(
+                    onClick = onViewStandings,
+                    modifier = Modifier.height(32.dp)
+                ) {
+                    Text(stringResource(R.string.next_match_standings_button), fontSize = 12.sp)
+                }
             }
         }
 
@@ -201,7 +218,8 @@ private fun NextMatchScreenPreview() {
             onMatchCompleted = {},
             onViewStandings = {},
             simulateCurrentMatch = {},
-            loadNextMatch = {}
+            loadNextMatch = {},
+            skipAllMatches = {}
         )
     }
 }
