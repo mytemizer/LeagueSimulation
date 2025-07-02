@@ -6,7 +6,8 @@ package com.mytemizer.leaguesimulator.core.domain.model
 data class TournamentState(
     val currentRound: Int = 1,
     val matchesPlayed: Int = 0,
-    val totalMatches: Int = 6,
+    val totalMatches: Int = 0,
+    val totalRounds: Int = 0,
     val isComplete: Boolean = false,
     val hasMoreMatches: Boolean = true
 )

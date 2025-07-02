@@ -23,6 +23,7 @@ import com.mytemizer.leaguesimulator.components.ErrorDisplay
 import com.mytemizer.leaguesimulator.core.design.theme.LeagueSimulatorTheme
 import com.mytemizer.leaguesimulator.ui.teamcreation.components.TeamsDisplay
 import com.mytemizer.leaguesimulator.ui.teamcreation.components.VerticalTeamGenerationOptions
+import com.mytemizer.leaguesimulator.ui.teamcreation.components.TeamCountSelector
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -43,6 +44,7 @@ fun TeamCreationScreen(
             onTeamsCreated()
         },
         selectTier = { tier: TeamTier -> viewModel.selectTier(tier) },
+        selectTeamCount = { teamCount: Int -> viewModel.selectTeamCount(teamCount) },
         generateTeams = { viewModel.generateTeams() },
         initializeTournament = { viewModel.initializeTournament() }
     )
@@ -56,6 +58,7 @@ private fun TeamCreationScreenContent(
     getTeamsResult: () -> Resource<List<Team>>,
     onTeamsCreated: () -> Unit,
     selectTier: (TeamTier) -> Unit,
+    selectTeamCount: (Int) -> Unit,
     generateTeams: () -> Unit,
     initializeTournament: () -> Unit
 ) {
@@ -123,6 +126,14 @@ private fun TeamCreationScreenContent(
                     .weight(0.8f)
                     .fillMaxHeight()
             ) {
+                // Team Count Selector
+                TeamCountSelector(
+                    selectedTeamCount = getUiState().selectedTeamCount,
+                    onTeamCountSelected = { selectTeamCount(it) }
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
                 when {
                     getTeamsResult().isLoading() -> {
                         Box(
@@ -179,6 +190,7 @@ private fun TeamCreationScreenPreview() {
             },
             onTeamsCreated = {},
             selectTier = {},
+            selectTeamCount = {},
             generateTeams = {},
             initializeTournament = {},
         )

@@ -1,5 +1,6 @@
 package com.mytemizer.leaguesimulator.core.data.repository
 
+import com.mytemizer.leaguesimulator.core.common.util.Constants
 import com.mytemizer.leaguesimulator.core.domain.model.TournamentState
 import com.mytemizer.leaguesimulator.core.domain.model.*
 import com.mytemizer.leaguesimulator.core.domain.repository.TournamentRepository
@@ -33,7 +34,9 @@ class TournamentRepositoryImpl(
      * Initialize a new tournament with teams
      */
     override fun initializeTournament(teams: List<Team>) {
-        require(teams.size == 4) { "Tournament must have exactly 4 teams" }
+        require(teams.size >= Constants.MIN_TEAMS_IN_LEAGUE) { "Tournament must have at least ${Constants.MIN_TEAMS_IN_LEAGUE} teams" }
+        require(teams.size % 2 == 0) { "Tournament must have an even number of teams" }
+        require(teams.size <= Constants.MAX_TEAMS_IN_LEAGUE) { "Tournament cannot have more than ${Constants.MAX_TEAMS_IN_LEAGUE} teams" }
 
         currentTeams = teams
         allMatches = generateAllMatches(teams)
@@ -49,8 +52,9 @@ class TournamentRepositoryImpl(
      */
     private fun generateAllMatches(teams: List<Team>): List<GroupMatch> {
         val matchPairs = matchSimulator.generateGroupMatches(teams)
+        val matchesPerRound = teams.size / 2
         return matchPairs.mapIndexed { index, (homeTeam, awayTeam) ->
-            val round = (index / 2) + 1
+            val round = (index / matchesPerRound) + 1
             GroupMatch(
                 id = index.toLong(),
                 homeTeam = homeTeam,
@@ -95,7 +99,8 @@ class TournamentRepositoryImpl(
         return if (currentMatchIndex < allMatches.size) {
             allMatches[currentMatchIndex].round
         } else {
-            3 // Tournament complete
+            // Tournament complete - return total rounds
+            if (currentTeams.isNotEmpty()) currentTeams.size - 1 else 1
         }
     }
 
@@ -152,10 +157,12 @@ class TournamentRepositoryImpl(
      * Emit tournament state change
      */
     private fun emitStateChange() {
+        val totalRounds = if (currentTeams.isNotEmpty()) currentTeams.size - 1 else 0
         _tournamentState.value = TournamentState(
             currentRound = getCurrentRound(),
             matchesPlayed = getPlayedMatchesCount(),
             totalMatches = allMatches.size,
+            totalRounds = totalRounds,
             isComplete = isTournamentComplete(),
             hasMoreMatches = hasMoreMatches()
         )

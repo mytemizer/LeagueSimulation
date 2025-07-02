@@ -92,7 +92,7 @@ fun NextMatchScreenContent(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = stringResource(R.string.next_match_title, getUiState().currentRound),
+                text = stringResource(R.string.next_match_title, getUiState().currentRound, getUiState().totalRounds),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -158,9 +158,9 @@ fun NextMatchScreenContent(
             ) {
                 TournamentProgress(
                     currentRound = getUiState().currentRound,
-                    totalRounds = 3,
+                    totalRounds = getUiState().totalRounds,
                     matchesPlayed = getUiState().matchesPlayed,
-                    totalMatches = 6
+                    totalMatches = getUiState().totalMatches
                 )
             }
         }
@@ -176,7 +176,7 @@ private fun NextMatchScreenPreview() {
     LeagueSimulatorTheme {
         NextMatchScreenContent(
             modifier = Modifier,
-            getUiState = { NextMatchUiState(currentRound = 2, matchesPlayed = 4, hasMoreMatches = true) },
+            getUiState = { NextMatchUiState(currentRound = 2, matchesPlayed = 4, totalMatches = 6, totalRounds = 3, hasMoreMatches = true) },
             getCurrentMatch = {
                 Resource.Success(
                     GroupMatch(

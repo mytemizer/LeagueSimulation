@@ -37,7 +37,7 @@ class TeamCreationViewModel(
                 }
 
                 val params = GenerateTeamsUseCase.GenerateTeamsParams(
-                    teamCount = Constants.DEFAULT_TEAMS_IN_LEAGUE,
+                    teamCount = _uiState.value.selectedTeamCount,
                     generationType = generationType
                 )
 
@@ -59,6 +59,10 @@ class TeamCreationViewModel(
         _uiState.value = _uiState.value.copy(selectedTier = tier)
     }
 
+    fun selectTeamCount(teamCount: Int) {
+        _uiState.value = _uiState.value.copy(selectedTeamCount = teamCount)
+    }
+
     fun getGeneratedTeams(): List<Team> {
         return when (val result = _teamsResult.value) {
             is Resource.Success -> result.data
@@ -68,7 +72,7 @@ class TeamCreationViewModel(
 
     fun initializeTournament() {
         val teams = getGeneratedTeams()
-        if (teams.size == 4) {
+        if (teams.size >= 4 && teams.size % 2 == 0) {
             tournamentRepository.initializeTournament(teams)
         }
     }
@@ -80,5 +84,6 @@ class TeamCreationViewModel(
 
 data class TeamCreationUiState(
     val selectedTier: TeamTier = TeamTier.MIXED,
+    val selectedTeamCount: Int = Constants.DEFAULT_TEAMS_IN_LEAGUE,
     val isGenerating: Boolean = false
 )

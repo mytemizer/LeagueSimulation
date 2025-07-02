@@ -74,8 +74,12 @@ fun TeamsDisplay(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
+                val teamCount = teams.size
+                val totalMatches = if (teamCount > 0) teamCount * (teamCount - 1) / 2 else 0
+                val totalRounds = if (teamCount > 0) teamCount - 1 else 0
+
                 Text(
-                    text = stringResource(R.string.team_creation_tournament_info),
+                    text = "$teamCount teams • $totalRounds rounds • $totalMatches matches",
                     fontSize = 11.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

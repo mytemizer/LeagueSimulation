@@ -32,7 +32,14 @@ class NextMatchViewModel(
 
         // Observe tournament state changes and auto-refresh
         tournamentRepository.getTournamentStatus()
-            .onEach {
+            .onEach { tournamentState ->
+                _uiState.value = _uiState.value.copy(
+                    currentRound = tournamentState.currentRound,
+                    matchesPlayed = tournamentState.matchesPlayed,
+                    totalMatches = tournamentState.totalMatches,
+                    totalRounds = tournamentState.totalRounds,
+                    hasMoreMatches = tournamentState.hasMoreMatches
+                )
                 loadNextMatch()
             }
             .launchIn(viewModelScope)
@@ -103,6 +110,8 @@ class NextMatchViewModel(
 data class NextMatchUiState(
     val currentRound: Int = 1,
     val matchesPlayed: Int = 0,
+    val totalMatches: Int = 0,
+    val totalRounds: Int = 0,
     val hasMoreMatches: Boolean = true,
     val isSimulating: Boolean = false
 )
