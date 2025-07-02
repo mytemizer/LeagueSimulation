@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import com.mytemizer.leaguesimulator.core.common.util.Constants
 
 class TeamCreationViewModel(
     private val generateTeamsUseCase: GenerateTeamsUseCase,
@@ -36,7 +37,7 @@ class TeamCreationViewModel(
                 }
 
                 val params = GenerateTeamsUseCase.GenerateTeamsParams(
-                    teamCount = 4,
+                    teamCount = Constants.DEFAULT_TEAMS_IN_LEAGUE,
                     generationType = generationType
                 )
 

@@ -3,6 +3,7 @@ package com.mytemizer.leaguesimulator.core.domain.usecase
 import com.mytemizer.leaguesimulator.core.domain.mock.MockTeamGenerator
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 import com.mytemizer.leaguesimulator.core.domain.repository.TeamRepository
+import com.mytemizer.leaguesimulator.core.common.util.Constants
 
 /**
  * Use case for generating teams for a league
@@ -57,8 +58,8 @@ class GenerateTeamsUseCase(
         val generationType: GenerationType,
     ) {
         init {
-            require(teamCount > 0) { "Team count must be positive" }
-            require(teamCount <= 50) { "Team count cannot exceed 50" }
+            require(teamCount > Constants.MIN_TEAMS_IN_LEAGUE) { "Team count must be at least ${Constants.MIN_TEAMS_IN_LEAGUE}" }
+            require(teamCount <= Constants.MAX_TEAMS_IN_LEAGUE) { "Team count cannot exceed ${Constants.MAX_TEAMS_IN_LEAGUE}" }
             require(teamCount % 2 == 0) { "Team count must be even for proper league scheduling" }
         }
     }
