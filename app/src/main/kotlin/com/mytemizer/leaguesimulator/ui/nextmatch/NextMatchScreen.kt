@@ -1,5 +1,6 @@
 package com.mytemizer.leaguesimulator.ui.nextmatch
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -23,17 +24,39 @@ import com.mytemizer.leaguesimulator.components.ErrorDisplay
 import com.mytemizer.leaguesimulator.core.domain.model.Team
 import com.mytemizer.leaguesimulator.ui.nextmatch.components.MatchDisplay
 import com.mytemizer.leaguesimulator.ui.nextmatch.components.TournamentProgress
+import com.mytemizer.leaguesimulator.ui.nextmatch.dialog.ResetTournamentDialog
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun NextMatchScreen(
     onMatchCompleted: () -> Unit,
     onViewStandings: () -> Unit,
+    onResetTournament: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: NextMatchViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val currentMatch by viewModel.currentMatch.collectAsStateWithLifecycle()
+    var showResetDialog by remember { mutableStateOf(false) }
+
+    // Handle back button press
+    BackHandler {
+        showResetDialog = true
+    }
+
+    // Reset tournament confirmation dialog
+    if (showResetDialog) {
+        ResetTournamentDialog(
+            onConfirm = {
+                showResetDialog = false
+                viewModel.resetTournament()
+                onResetTournament()
+            },
+            onDismiss = {
+                showResetDialog = false
+            }
+        )
+    }
 
     NextMatchScreenContent(modifier,
         getUiState = { uiState },

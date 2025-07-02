@@ -14,7 +14,7 @@ val presentationModule = module {
 
     // ViewModels
     viewModel { TeamCreationViewModel(get(), get()) }
-    viewModel { NextMatchViewModel(get(), get()) }
+    viewModel { NextMatchViewModel(get(), get(), get()) }
     viewModel { StandingsViewModel(get(), get()) }
 
 }

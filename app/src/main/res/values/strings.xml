@@ -124,4 +124,10 @@
     <string name="tournament_completed_title">Tournament Complete!</string>
     <string name="tournament_completed_description">All matches have been played.\nCheck the final standings!</string>
     <string name="tournament_completed_view_standings">📊 View Final Standings</string>
+
+    <!-- Reset Tournament Dialog -->
+    <string name="reset_tournament_dialog_title">🔄 Reset Tournament?</string>
+    <string name="reset_tournament_dialog_message">Are you sure you want to reset the tournament? All progress will be lost and you\'ll return to the welcome screen.</string>
+    <string name="reset_tournament_dialog_confirm">Reset</string>
+    <string name="reset_tournament_dialog_cancel">Cancel</string>
 </resources>
